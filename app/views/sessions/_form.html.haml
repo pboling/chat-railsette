@@ -1,0 +1,6 @@
+= form_tag sessions_path do
+  %p
+    %label{:for => "name"} Handle
+    = text_field_tag 'name'
+
+  %p>= submit_tag 'Log in'

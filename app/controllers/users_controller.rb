@@ -44,6 +44,9 @@ class UsersController < ApplicationController
 
     @user.name = params[:user][:name]
 
+    self.current_user = @user # Log the new user in!
+    ::Rails.logger.debug("logged_in?: #{logged_in?}, current_user: #{current_user}")
+
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }

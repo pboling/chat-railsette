@@ -1,0 +1,9 @@
+<div id="cacheable_flash">
+  <div id="flash_error" class="inset flash error hide"></div>
+  <div id="flash_notice" class="inset flash notice hide"></div>
+  <script type="text/javascript">
+    Flash.transferFromCookies();
+    Flash.writeDataTo('error', jQuery('#flash_error'));
+    Flash.writeDataTo('notice', jQuery('#flash_notice'));
+  </script>
+</div>

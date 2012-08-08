@@ -1,0 +1,8 @@
+%h1 Welcome to Chat Railsette
+
+- unless logged_in?
+  %p Please Create a user to begin chatting
+  = render :partial => 'users/form', :locals => {:user => User.new}
+
+  %p Or login
+  = render :partial => 'sessions/form', :locals => {:user => User.new}

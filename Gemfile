@@ -7,6 +7,8 @@ gem 'rails', '3.2.7'
 
 gem 'sqlite3'
 gem 'devise' # For authentication
+gem 'haml-rails'
+gem 'cacheable_flash'
 
 group :development do
   gem 'puma'

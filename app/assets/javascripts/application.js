@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require flash
+//= require jquery.cookie
 //= require_tree .
