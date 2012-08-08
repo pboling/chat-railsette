@@ -1,11 +1,14 @@
 ChatRailsette::Application.routes.draw do
 
+  resources :chats
+
   root :to => "home#index"
 
   match '/logout' => 'sessions#destroy'
   resources :sessions, :except => [:index, :update, :edit]
   resources :users
-
+  resources :chats, :only => [:index, :new]
+  resources :messages
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
