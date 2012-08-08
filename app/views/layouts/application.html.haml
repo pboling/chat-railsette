@@ -11,3 +11,12 @@
     = render :partial => 'layouts/cacheable_flash'
 
     = yield
+
+    - unless logged_in?
+      %p Please Create a user to begin chatting
+      = render :partial => 'users/form', :locals => {:user => User.new}
+
+      %p Or login
+      = render :partial => 'sessions/form', :locals => {:user => User.new}
+    - else
+      = link_to 'logout', logout_path

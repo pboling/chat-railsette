@@ -2,6 +2,7 @@ ChatRailsette::Application.routes.draw do
 
   root :to => "home#index"
 
+  match '/logout' => 'sessions#destroy'
   resources :sessions, :except => [:index, :update, :edit]
   resources :users
 
