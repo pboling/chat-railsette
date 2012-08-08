@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "can be saved successfully" do
+    User.create.should be_persisted
+  end
 end
