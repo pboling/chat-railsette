@@ -40,7 +40,9 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(params[:user])
+    @user = User.new
+
+    @user.name = params[:user][:name]
 
     respond_to do |format|
       if @user.save
@@ -58,8 +60,10 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
+    @user.name = params[:user][:name]
+
     respond_to do |format|
-      if @user.update_attributes(params[:user])
+      if @user.save
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else

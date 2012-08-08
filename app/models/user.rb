@@ -1,3 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :name
+  validates :name, :presence => true, :uniqueness => true, :length => { :minimum => 3 }
+
+  #attr_accessible :name
 end
