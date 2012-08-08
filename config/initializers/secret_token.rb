@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-ChatRailsette::Application.config.secret_token = '89e167eaefc87d81e12b48003d5d0f0f2a01652ed78ffeb286eae9d912b42a80d8ef0927ef52456cd51ca769c79475f0151f50ea971339e636d162c7a3020202'
+ChatRailsette::Application.config.secret_token = 'f60b18e27901d8970256816ee87120fbc8d87cd6f31ab8b22f7a89b4371acf8e73fbbad1ff2a3788c6794d48e83d1c5526ba2bf8be0342fa5d168b40465deccf'
