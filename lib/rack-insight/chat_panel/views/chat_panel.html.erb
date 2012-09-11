@@ -1,0 +1,14 @@
+<%- chats.each do |mc| %>
+  <p>
+    time: <%= mc.display_time %>
+  </p>
+  <article>
+    <%- mc.filtered_backtrace.each do |line| %>
+      <p>
+        <pre>
+          <%= line.html_safe %>
+        </pre>
+      </p>
+    <%- end %>
+  </article>
+<%- end %>

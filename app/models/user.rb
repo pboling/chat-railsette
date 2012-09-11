@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
     User.find_by_name(name)
   end
 
+  def self.do_stuff
+    "I Do Stuff"
+  end
+
 end

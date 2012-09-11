@@ -45,6 +45,26 @@ module ChatRailsette
     # Swap the ActionDispatch::Flash middleware with the CacheableFlash one
     config.middleware.swap ActionDispatch::Flash, CacheableFlash::Middleware
 
+    config.middleware.use "Rack::Insight::App",
+                          :secret_key => 'boogity-bop-flim-flam-ziggy-drip-lock-hot',
+                          :panel_files => [
+                                  #'active_record_panel',
+                                  #'active_resource_panel',
+                                  #'cache_panel',
+                                  'log_panel',
+                                  #'memory_panel',
+                                  #'rails_info_panel',
+                                  #'redis_panel',
+                                  #'request_variables_panel',
+                                  #'speedtracer_panel',
+                                  #'sql_panel',
+                                  #'templates_panel',
+                                  #'timer_panel',
+                                  'chat_panel',
+                                  'http_client_panel',
+                                  'message_panel'
+                          ]
+
     # Use SQL instead of Active Record's schema dumper when creating the database.
     # This is necessary if your schema can't be completely dumped by the schema dumper,
     # like if you have constraints or database-specific column types
@@ -61,5 +81,36 @@ module ChatRailsette
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.before_initialize do
+      Rack::Insight::Config.configure do |config|
+        config[:panel_load_paths] << 'rack-insight/chat_panel'
+        config[:panel_load_paths] << 'rack-insight/foo'
+        config[:verbosity] = Rack::Insight::Logging::VERBOSITY[:low]
+        # Note: This must be configured before initialize
+        config[:panel_configs][:message] = {:probes => {"Message" => [:class, :profess_love]}}
+        config[:panel_configs][:http_client] = {:probes => {"User" => [:class, :do_stuff]}}
+        #config[:filtered_backtrace] = true
+        #config[:panel_configs][:log_panel] = {:probes => {
+        #        "ActiveSupport::BufferedLogger" => [:instance, :add],
+        #        "Logger" => [:instance, :add]
+        #}}
+        #config[:panel_configs][:log_panel] = {:probes => {"ActiveSupport::BufferedLogger" => [:instance, :add]}}
+        #config[:panel_configs][:log_panel] = {:probes => {"Logger" => [:instance, :add]}}
+      end
+    end
+
+    config.after_initialize do
+      Rack::Insight::Config.configure do |config|
+        config[:logger] = ::Rails.logger
+        config[:rails_log_copy] = false
+        config[:verbosity] = false # Rack::Insight::Logging::VERBOSITY[:debug]
+        config[:filtered_backtrace] = true
+        # Note: This will not work after initialize
+        #config[:panel_configs][:message] = {:probes => {"Message" => [:class, :profess_love]}}
+        #config[:panel_configs][:http_client] = {:probes => {"User" => [:class, :do_stuff]}}
+      end
+    end
+
   end
 end

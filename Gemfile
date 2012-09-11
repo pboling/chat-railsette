@@ -1,14 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.7'
+gem 'rails', '3.2.8'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'devise' # For authentication
 gem 'haml-rails'
-gem 'cacheable_flash'
+gem 'cacheable_flash', :path => '../../src/mygithub/cacheable-flash-pboling'
 
 group :development do
   gem 'puma'
@@ -27,6 +26,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'rack-insight', :path => "../rack-insight"
 
 group :development, :test do
   gem 'rspec-rails'
