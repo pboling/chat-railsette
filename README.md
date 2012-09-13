@@ -1,4 +1,8 @@
 chat-railsette
 ==============
 
-chat roulette in rails
+Not a chat roulette in rails.
+
+Just an example project where I vet my gems.
+
+See how to write custom rack-insight panels here!
