@@ -5,7 +5,8 @@ module Rack::Insight
 
       include Rack::Insight::FilteredBacktrace
 
-      def initialize(time, args, message, backtrace)
+      def initialize(method_call, time, args, message, backtrace)
+        @method_call = method_call
         @time = time
         @args= args
         @message = message
@@ -19,9 +20,8 @@ module Rack::Insight
     end
 
     def after_detect(method_call, timing, args, message)
-      logger.debug("detected: phat_method")# if verbose(:high)
       backtrace = method_call.backtrace[2..-1]
-      store(@env, MethodCalled.new(timing.duration, args, message, backtrace))
+      store(@env, MethodCalled.new(method_call.method.to_s, timing.duration, args, message, backtrace))
     end
 
     def initialize(app)
@@ -32,6 +32,7 @@ module Rack::Insight
       probe(self) do
         instrument "Chat" do
           instance_probe :phat_method
+          class_probe :phat_method
         end
       end
 

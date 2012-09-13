@@ -48,21 +48,22 @@ module ChatRailsette
     config.middleware.use "Rack::Insight::App",
                           :secret_key => 'boogity-bop-flim-flam-ziggy-drip-lock-hot',
                           :panel_files => [
-                                  #'active_record_panel',
-                                  #'active_resource_panel',
-                                  #'cache_panel',
+                                  'active_record_panel',
+                                  'active_resource_panel',
+                                  'cache_panel',
                                   'log_panel',
-                                  #'memory_panel',
-                                  #'rails_info_panel',
-                                  #'redis_panel',
-                                  #'request_variables_panel',
-                                  #'speedtracer_panel',
-                                  #'sql_panel',
-                                  #'templates_panel',
-                                  #'timer_panel',
                                   'chat_panel',
                                   'http_client_panel',
-                                  'message_panel'
+                                  'message_panel',
+                                  'memory_panel',
+                                  'rails_info_panel',
+                                  'redis_panel',
+                                  'request_variables_panel',
+                                  'sql_panel',
+                                  'templates_panel',
+                                  'timer_panel'
+                                  # Not really a contender...
+                                  #'speedtracer_panel',
                           ]
 
     # Use SQL instead of Active Record's schema dumper when creating the database.
