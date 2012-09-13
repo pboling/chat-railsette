@@ -5,14 +5,6 @@ PATH
       json
       stackable_flash (>= 0.0.7)
 
-PATH
-  remote: ../rack-insight
-  specs:
-    rack-insight (0.5.14)
-      rack
-      sqlite3 (>= 1.3.3)
-      uuidtools (>= 2.1.2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -86,6 +78,10 @@ GEM
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
+    rack-insight (0.5.17)
+      rack
+      sqlite3 (>= 1.3.3)
+      uuidtools (>= 2.1.2)
     rack-ssl (1.3.2)
       rack
     rack-test (0.6.1)
@@ -153,7 +149,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   puma
-  rack-insight!
+  rack-insight (= 0.5.17)
   rails (= 3.2.8)
   rspec-rails
   sass-rails (~> 3.2.3)

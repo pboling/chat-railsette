@@ -26,7 +26,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'rack-insight', :path => "../rack-insight"
+gem 'rack-insight', '0.5.17'#, :path => "../rack-insight"
 
 group :development, :test do
   gem 'rspec-rails'
