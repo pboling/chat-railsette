@@ -7,7 +7,7 @@ gem 'rails', '3.2.8'
 
 gem 'sqlite3'
 gem 'haml-rails'
-gem 'cacheable_flash', :path => '../../src/mygithub/cacheable-flash-pboling'
+#gem 'cacheable_flash', '0.2.10'#, :path => '../../src/mygithub/cacheable-flash-pboling'
 
 group :development do
   gem 'puma'
@@ -26,7 +26,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'rack-insight', '0.5.17'#, :path => "../rack-insight"
+gem 'rack-insight', :path => "../rack-insight"
 
 group :development, :test do
   gem 'rspec-rails'

@@ -1,0 +1,10 @@
+//= require jquery-environment
+<% if Rails.env == 'production' %>
+//= require environments/production
+<% elsif Rails.env == 'staging' %>
+//= require environments/staging
+<% elsif Rails.env == 'development' %>
+//= require environments/development
+<% elsif Rails.env == 'testing' %>
+//= require environments/testing
+<% end %>

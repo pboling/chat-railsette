@@ -42,7 +42,7 @@ module Rack::Insight
       "SUPER CHAT"
     end
 
-    def heading
+    def heading_for_request(number)
       "SUPER CHAT"
     end
 

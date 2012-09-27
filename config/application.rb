@@ -43,25 +43,25 @@ module ChatRailsette
     config.active_support.escape_html_entities_in_json = true
 
     # Swap the ActionDispatch::Flash middleware with the CacheableFlash one
-    config.middleware.swap ActionDispatch::Flash, CacheableFlash::Middleware
+    #config.middleware.swap ActionDispatch::Flash, CacheableFlash::Middleware
 
     config.middleware.use "Rack::Insight::App",
                           :secret_key => 'boogity-bop-flim-flam-ziggy-drip-lock-hot',
                           :panel_files => [
                                   'active_record_panel',
-                                  'active_resource_panel',
-                                  'cache_panel',
-                                  'log_panel',
-                                  'chat_panel',
-                                  'http_client_panel',
-                                  'message_panel',
-                                  'memory_panel',
-                                  'rails_info_panel',
-                                  'redis_panel',
-                                  'request_variables_panel',
+                                  #'active_resource_panel',
+                                  #'cache_panel',
+                                  #'log_panel',
+                                  #'chat_panel',
+                                  #'http_client_panel',
+                                  #'message_panel',
+                                  #'memory_panel',
+                                  #'rails_info_panel',
+                                  #'redis_panel',
+                                  #'request_variables_panel',
                                   'sql_panel',
-                                  'templates_panel',
-                                  'timer_panel'
+                                  #'templates_panel',
+                                  #'timer_panel'
                                   # Not really a contender...
                                   #'speedtracer_panel',
                           ]

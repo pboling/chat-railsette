@@ -11,7 +11,10 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require config
+//= require_tree .
+
+// Not in use
 // require jquery_ujs
 // require flash
 // require jquery.cookie
-// require_tree .
